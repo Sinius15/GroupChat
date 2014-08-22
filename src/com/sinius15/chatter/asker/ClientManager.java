@@ -24,7 +24,9 @@ public class ClientManager {
 	public void addClient(String ip){
 		try {
 			Socket clientSocket = new Socket(ip, Chatter.CHATTER_PORT);
-			clients.add(new Client(clientSocket));
+			Client greenBoy = new Client(clientSocket);
+			clients.add(greenBoy);
+			System.out.println(greenBoy.ping());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

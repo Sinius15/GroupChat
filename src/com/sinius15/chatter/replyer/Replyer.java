@@ -27,6 +27,7 @@ public class Replyer extends Thread{
 		this.socket = sok;
 		out = new PrintWriter(socket.getOutputStream(), true);
 		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		start();
 	}
 	
 	@Override
@@ -55,7 +56,7 @@ public class Replyer extends Thread{
 		if(request.equals("ping"))
 			out.println("pong");
 		if(request.equals("name"))
-			out.println("name:" + Chatter.myName);
+			out.println("name:" +  Chatter.getInstance().myName);
 	}
 	
 }

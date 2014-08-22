@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 
 import com.sinius15.chatter.Chatter;
+import com.sinius15.chatter.replyer.ReplyManager;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -36,6 +37,12 @@ public class ChatFrame extends JFrame {
 		menuBar.add(mnConnection);
 		
 		JMenuItem mntmConnect = new JMenuItem("Connect...");
+		mntmConnect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String ip = JOptionPane.showInputDialog(thiss, "Ip?", "Ip?", JOptionPane.QUESTION_MESSAGE);
+				Chatter.getInstance().clients.addClient(ip);
+			}
+		});
 		mnConnection.add(mntmConnect);
 		
 		JMenuItem mntmCreateNewChat = new JMenuItem("Create New...");

@@ -19,11 +19,13 @@ public class Chatter {
 	
 	public static final int CHATTER_PORT = 4447;
 	
-	ChatFrame frame;
-	ReplyManager replyer;
-	ClientManager clients;
+	public ChatFrame frame;
+	public ReplyManager replyer;
+	public ClientManager clients;
 	
-	public static String myName = System.getProperty("user.name");
+	public String myName = System.getProperty("user.name");
+	
+	private static Chatter instance;
 	
 	public Chatter() {
 		EventQueue.invokeLater(new Runnable() {
@@ -59,14 +61,18 @@ public class Chatter {
 		}
 		
 		StringBuilder builder = new StringBuilder();
-		builder.append("Your name is " + myName + System.lineSeparator());
+		builder.append("Your name is " + Chatter.getInstance().myName + System.lineSeparator());
 		builder.append("Your current ip is " + ip + System.lineSeparator());
 
 		return builder.toString();
 	}
 	
 	public static void main(String[] args) {
-		new Chatter();
+		instance = new Chatter();
+	}
+	
+	public static Chatter getInstance(){
+		return instance;
 	}
 	
 }
