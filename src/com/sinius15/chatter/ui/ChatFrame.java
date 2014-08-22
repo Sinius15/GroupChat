@@ -1,4 +1,4 @@
-package com.sinius15.chatter;
+package com.sinius15.chatter.ui;
 
 import java.awt.BorderLayout;
 
@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
+
+import com.sinius15.chatter.Chatter;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package com.sinius15.chatter;
+package com.sinius15.chatter.ui;
 
 import java.awt.Color;
 
