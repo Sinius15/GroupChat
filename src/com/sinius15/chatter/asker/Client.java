@@ -24,12 +24,19 @@ public class Client {
 	
 	public boolean ping(){
 		try {
+			out.println("ping");
 			String response = getInputString();
 			return response.equals("pong");
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	public void close() throws IOException {
+		socket.close();
+		out.close();
+		in.close();
 	}
 	
 }

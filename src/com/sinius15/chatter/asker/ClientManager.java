@@ -26,7 +26,10 @@ public class ClientManager {
 			Socket clientSocket = new Socket(ip, Chatter.CHATTER_PORT);
 			Client greenBoy = new Client(clientSocket);
 			clients.add(greenBoy);
-			System.out.println(greenBoy.ping());
+			if(greenBoy.ping() == false){
+				clients.remove(greenBoy);
+				greenBoy.close();
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
